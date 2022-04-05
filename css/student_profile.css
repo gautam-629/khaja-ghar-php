@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&family=Oleo+Script:wght@700&display=swap');
+:root{
+    --font1:'Baloo Bhai 2', cursive;
+    --font2:'Baloo Bhai 2', cursive;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+}
+:root{
+    --primary:rgb(81, 81, 233);
+    --dark:#232323;
+    --pure:#fff;
+    --smoke:whitesmoke;
+    --dark-gray:#999;
+}
+.form-input{
+    font-size: 1rem;
+    border-radius: 6px;
+    padding: 3px;
+    font-family: var(--font2);
+}
+.btn{
+    margin-top: 5px;
+    outline: none;
+    color: white;
+     border-radius: 6px;
+     background: var(--primary);
+     padding: 10px 14px;
+     border: none;
+     cursor: pointer;
+     letter-spacing: 1px;
+}
+.btn:hover{
+    background-color: blueviolet;
+    transition: all 0.5s ease-in-out;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ul.nav_list{
+    position: relative;
+    left: 10px;
+    margin-right: 45px;
+    margin-top: 3px;
+    width: 200px;
+    height: 300px;
+    background: rgb(247, 244, 244);
+}
+
+ul.nav_list li.active a{
+    color: var(--primary);
+    text-decoration: underline;
+  font-size: 2rem;
+    
+}
+ul.nav_list li a{
+    color: var(--dark);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+ul.nav_list li{
+    text-align: center;
+    padding-top: .9rem;
+    list-style: none;
+    font-weight: bold;
+}
+ul.nav_list img{
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 100px;
+}
+ul.nav_list li a:hover{
+    color: var(--primary);
+    text-decoration: underline;
+}
+.header{
+    background-color: rgb(10, 10, 122);
+    color: white;
+    height: 60px;
+}
+
+.container{
+    width: 1240px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+textarea{
+    padding: 5px 8rem;
+    text-align: left;
+    font-size: 1.4rem;
+    border-radius: 6px;
+}
+
+.form-input{
+    text-align: left;
+    font-size: 1.4rem;
+    border-radius: 6px;
+    padding: 3px 5rem;
+    font-family: var(--font2);
+}
+label{
+    font-size: 1.3rem;
+    font-family: var(--font2);
+}

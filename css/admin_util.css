@@ -1,0 +1,42 @@
+
+.form-input{
+    font-size: 1.7rem;
+    border-radius: 6px;
+    padding: 7 60pxpx;
+    font-family: var(--font2);
+}
+label{
+    font-size: 1.5rem;
+    font-family: var(--font2);
+}
+
+.btn{
+    margin-top: 5px;
+    outline: none;
+    color: white;
+     border-radius: 6px;
+     background-color: blue;
+     padding: 10px 14px;
+     border: none;
+     cursor: pointer;
+     letter-spacing: 1px;
+}
+.btn:hover{
+    background-color: blueviolet;
+    transition: all 0.5s ease-in-out;
+}
+
+table.mytable th,td{
+    padding:8px;
+    margin: 4px;
+   font-size: 1.5rem;
+}
+table.mytable th,td{
+    text-align: center;
+}
+
+table.feedback th{
+    font-size: 1.5rem;
+    padding:8px;
+    margin: 4px;
+}
