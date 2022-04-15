@@ -59,4 +59,17 @@ session_start();
         }
       }
     }
+      if(isset($_POST['Mod_Quantity']))
+      {
+        foreach($_SESSION['cart'] as $key => $value){
+          if($value['item_id']==$_POST['item_id']){
+            $_SESSION['cart'][$key]['Quantity']=$_POST['Mod_Quantity'];
+            echo "
+                <script>
+                 location.href='cart.php';
+                 </script>
+                ";
+          }
+      }
+    }
 ?>

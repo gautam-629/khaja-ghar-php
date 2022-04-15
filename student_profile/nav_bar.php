@@ -34,7 +34,7 @@ include('../php/partials/dbconnect.php');
             <ul class="nav_list">
                 <img src="<?php echo $stu_img ?>" alt="image" width="200px"> 
                 <li class="active"><a href="student_profile.php">Pofile</a></li>
-                <li><a href="#">My order</a></li>
+                <li><a href="myorder.php">My order</a></li>
                 <li><a href="student_feedback.php">Feedback</a></li>
                 <li><a href="changePassword.php">Change Password</a></li>
                 <li><a href="../view/logout.php">Logout</a></li>

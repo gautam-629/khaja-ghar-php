@@ -40,6 +40,7 @@ include('../php/partials/dbconnect.php');
    if($conn->query($sql) == TRUE){
    // below msg display on form submit success
    $msg = '<div style="color:green"> Updated Successfully </div>';
+   echo "<script> location.href='student_profile.php'; </script>";
    } else {
    // below msg display on form submit failed
    $msg = '<divstyle="color:red"> Unable to Update </div>';

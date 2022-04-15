@@ -23,7 +23,8 @@ if(isset($_POST['stusignup']) && isset($_POST['stuname']) && isset($_POST['stuem
     $stuname = $_POST['stuname'];
     $stuemail = $_POST['stuemail'];
     $stupass = $_POST['stupass'];
-    $sql = "INSERT INTO student(stu_name, stu_email, stu_pass) VALUES ('$stuname', '$stuemail', '$stupass')";
+    $hash = password_hash($stupass, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO student(stu_name, stu_email, stu_pass) VALUES ('$stuname', '$stuemail', '$hash')";
     if($conn->query($sql) == TRUE){
       echo json_encode("OK");
     } else {
@@ -37,17 +38,38 @@ if(isset($_POST['stusignup']) && isset($_POST['stuname']) && isset($_POST['stuem
     if(isset($_POST['checkLogemail']) && isset($_POST['stuLogEmail']) && isset($_POST['stuLogPass'])){
       $stuLogEmail = $_POST['stuLogEmail'];
       $stuLogPass = $_POST['stuLogPass'];
-      $sql = "SELECT stu_email, stu_pass FROM student WHERE stu_email='".$stuLogEmail."' AND stu_pass='".$stuLogPass."'";
-      $result = $conn->query($sql);
-      $row = $result->num_rows;
+
+    // without hash password
+
+      // $sql = "SELECT stu_email, stu_pass FROM student WHERE stu_email='".$stuLogEmail."' AND stu_pass='".$stuLogPass."'";
+      // $result = $conn->query($sql);
+      // $row = $result->num_rows;
       
-      if($row === 1){
-        $_SESSION['is_login'] = true;
+      // if($row === 1){
+      //   $_SESSION['is_login'] = true;
+      //   $_SESSION['stuLogEmail'] = $stuLogEmail;
+      //   echo json_encode($row);
+      // } else if($row === 0) {
+      //   echo json_encode($row);
+      // }
+
+
+//  hash password checking
+      $sql = "Select * from student where stu_email='$stuLogEmail'";
+    $result = mysqli_query($conn, $sql);
+    $num = mysqli_num_rows($result);
+ if($num==1){
+  while($row=mysqli_fetch_assoc($result)){
+    if (password_verify($stuLogPass, $row['stu_pass'])){
+            $_SESSION['is_login'] = true;
         $_SESSION['stuLogEmail'] = $stuLogEmail;
-        echo json_encode($row);
-      } else if($row === 0) {
-        echo json_encode($row);
-      }
+        echo json_encode(1);
+    }
+    else{
+      echo json_encode(0);
+  }
+  }
+ }
     }
   }
 ?>
