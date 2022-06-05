@@ -37,22 +37,22 @@ include('../php/partials/dbconnect.php');
     <div style="margin-left: 200px;">
         <h1 style="color: blue; font-size: 2rem; font-weight: bold;">Add New Student</h1>
         <hr>
-        <form action="" method="post" class="myform">
+        <form action="" method="post" class="myform" onsubmit="return validation();">
         <?php if(isset($msg)) {echo $msg; } ?>
             <div style="margin: 5px;">
-                <label for="pnumber">Student Name</label> <br>
+                <label for="pnumber">Student Name</label> <span style="margin-left: 4px;color: red;" id="statusMsg1"></span><br>
                 <input class="form-input" type="text" name="stu_name"  id="stu_name" placeholder="Student name"  required>
             </div>
             <div style="margin: 5px;">
-                <label for="name">Student Email</label><br>
+                <label for="name">Student Email</label><span style="margin-left: 4px;color: red;" id="statusMsg2"></span><br>
                 <input class="form-input" type="Email"  name="stu_email"  id="stu_email" placeholder="Student Email" required> <br>
             </div>
             <div style="margin: 5px;">
-                <label for="name">PassWord</label><br>
+                <label for="name">Password</label><span style="margin-left: 4px;color: red;" id="statusMsg3"></span><br>
                 <input class="form-input" type="password" name="stu_pass" id="stu_pass" placeholder="Password" required> <br>
             </div>
             <div style="margin: 5px;">
-                <label for="name">Occupation</label><br>
+                <label for="name">Occupation</label><span style="margin-left: 4px;color: red;" id="statusMsg4"></span><br>
                 <input class="form-input" type="text" name="stu_occ"  id="stu_occ" placeholder="Occuption"  required>
             </div>
             <div style="display: flex; align-items: center; ">
@@ -62,4 +62,38 @@ include('../php/partials/dbconnect.php');
         </form>
     </div>
 </section>
+<script>
+function validation(){
+    var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    var namereg=/^[A-Za-z. ]{3,20}$/;
+    var nameocc=/^[A-Za-z. ]{3,20}$/;
+   let stu_name=document.getElementById("stu_name").value;
+   let stu_email=document.getElementById("stu_email").value;
+   let stu_pass=document.getElementById("stu_pass").value;
+   let stu_occ=document.getElementById("stu_occ").value;
+    
+   if(!namereg.test(stu_name)){
+       document.getElementById("statusMsg1").innerHTML='Invalid Name';
+       return false;
+   }
+
+   else if(stu_email.trim() != "" && !reg.test(stu_email)){
+    document.getElementById("statusMsg2").innerHTML='Please Enter Valid Email e.g. example@mail.com';
+       return false;
+   }
+
+   else if(stu_pass.length<4){
+    document.getElementById("statusMsg3").innerHTML=' Password must be atleast 4 character ! ';
+       return false;
+   }
+   else if(!nameocc.test(stu_occ)){
+       document.getElementById("statusMsg4").innerHTML='Invalid Occuption Name';
+       return false;
+   }
+   else{
+       return true;
+   }
+
+}
+</script>
 <?php  include("footer.php")?>

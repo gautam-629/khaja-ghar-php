@@ -11,7 +11,7 @@ $(document).ready(function() {
           stuemail: stuemail
         },
         success: function(data) {
-          console.log(data);
+          // console.log(data);
           if (data != 0) {
             $("#statusMsg2").html(
               '<small style="color:red;"> Email ID Already Registered ! </small>'
@@ -58,34 +58,58 @@ $(document).ready(function() {
 // ajax call for add new student
 function addStu(){
     var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    var namereg=/^[A-Za-z. ]{3,20}$/;
     stuname=$("#stuname").val();
     stuemail=$("#stuemail").val();
     stupass=$("#stupass").val();
+    
     if (stuname.trim() == "") {
         $("#statusMsg1").html(
           '<small style="color:red;"> Please Enter Name ! </small>'
         );
         $("#stuname").focus();
         return false;
-      } else if (stuemail.trim() == "") {
+      }
+
+      else if (!namereg.test(stuname)) {
+        $("#statusMsg1").html(
+          '<small style="color:red;"> Invalid Name </small>'
+        );
+        $("#stuname").focus();
+        return false;
+      }
+
+
+       else if (stuemail.trim() == "") {
         $("#statusMsg2").html(
           '<small style="color:red;"> Please Enter Email ! </small>'
         );
         $("#stuemail").focus();
         return false;
-      } else if (stuemail.trim() != "" && !reg.test(stuemail)) {
+      }
+       else if (stuemail.trim() != "" && !reg.test(stuemail)) {
         $("#statusMsg2").html(
           '<small style="color:red;"> Please Enter Valid Email e.g. example@mail.com </small>'
         );
         $("#stuemail").focus();
         return false;
-      } else if (stupass.trim() == "") {
+      }
+       else if (stupass.trim() == "") {
         $("#statusMsg3").html(
           '<small style="color:red;"> Please Enter Password ! </small>'
         );
         $("#stupass").focus();
         return false;
       }
+
+      else if (stupass.length<4) {
+        $("#statusMsg3").html(
+          '<small style="color:red;"> Password must be atleast 4 character ! </small>'
+        );
+        $("#stupass").focus();
+        return false;
+      }
+
   else{  
     $.ajax({
         url: "../php/students/add_student.php",
@@ -97,7 +121,7 @@ function addStu(){
             stupass: stupass
         },
         success: function (data) {
-            console.log(data);
+            // console.log(data);
             if (data == "OK") {
               $("#successMsg").html(
                 '<span style="color:green"> Registration Successful ! </span>'
@@ -121,13 +145,11 @@ function clearStuRegField() {
     $("#statusMsg3").html(" ");
   }
 
-
-  
 // Ajax Call for Student Login Verification
 function checkStuLogin() {
     var stuLogEmail = $("#stuLogEmail").val();
     var stuLogPass = $("#stuLogPass").val();
-    console.log(stuLogPass,stuLogEmail)
+    // console.log(stuLogPass,stuLogEmail
     $.ajax({
       url: "../php/students/add_student.php",
       type: "post",

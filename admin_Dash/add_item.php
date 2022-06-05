@@ -41,10 +41,10 @@ include('../php/partials/dbconnect.php');
     <div style="margin-left: 200px;">
         <h1 style="color: blue; font-size: 2rem; font-weight: bold;">Add New Item</h1>
         <hr>
-        <form action="" method="post" class="myform" enctype="multipart/form-data">
+        <form action="" method="post" class="myform" enctype="multipart/form-data" onsubmit="return validation();">
         <?php if(isset($msg)) {echo $msg; } ?>
             <div style="margin: 5px;">
-                <label for="pnumber">Item Name</label> <br>
+                <label for="pnumber">Item Name</label><span style="margin-left: 4px;color: red;" id="statusMsg1"></span> <br>
                 <input class="form-input" type="text" name="item_name"  id="item_name" placeholder="item name" required>
             </div>
             <div style="margin: 5px;">
@@ -52,7 +52,7 @@ include('../php/partials/dbconnect.php');
                 <input class="form-input" type="number"  name="item_price"  id="item_price" placeholder="item price" required> <br>
             </div>
             <div style="margin: 5px;">
-                <label for="name">Duration</label><br>
+                <label for="name">Duration</label><span style="margin-left: 4px;color: red;" id="statusMsg2"></span><br>
                 <input class="form-input" type="text" name="item_duration" id="item_duration" placeholder="duration" required> <br>
             </div>
             <div style="margin: 5px;">
@@ -66,4 +66,25 @@ include('../php/partials/dbconnect.php');
         </form>
     </div>
 </section>
+<script>
+    function validation(){
+    var itemName_reg=/^[A-Za-z. ]{3,20}$/;
+    var nameocc=/^[A-Za-z. ]{3,20}$/;
+   let item_name=document.getElementById("item_name").value;
+   let item_duration=document.getElementById("item_duration").value;
+    
+   if(!itemName_reg.test(item_name)){
+       document.getElementById("statusMsg1").innerHTML='Invalid item Name';
+       return false;
+   }
+  else if(item_duration.length>15 || item_duration.length<2){
+    document.getElementById("statusMsg2").innerHTML='Invalid duration';
+       return false;
+  }
+   else{
+       return true;
+   }
+
+}
+</script>
 <?php  include("footer.php")?>

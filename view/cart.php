@@ -11,7 +11,7 @@
     .cart_form {
         text-align: center;
         width: 250px;
-        height: 300px;
+        height: 330px;
         margin-right: 20px;
         background-color: aquamarine;
         border-radius: 10px;
@@ -76,7 +76,7 @@
         <h1 style="display: inline;">Grand Total:</h1 style="display: inline;">
         <h1 style="display: inline;" id="gtotal"> </h1>
 
-        <form style="margin-top: 20px;" action="purchase.php" method="post">
+        <form style="margin-top: 20px;" action="purchase.php" method="post" id="makePurchase">
             <!-- Order ID:  <input type="number" name="" id="">   -->
             <div>
                 <label for="email">Email</label> <br>
@@ -89,14 +89,13 @@
             </div>
             <div>
                 <label for="number">Phone Number</label>
-                <input type="number"  name="pnumber" id="" placeholder="Enter phone number">
+                <input type="text"  name="pnumber" id="number" placeholder="Enter phone number" required><br>
+                <span style="margin-left: 4px; color: red;" id="statusMsg1"></span> 
             </div>
             <div>
-                <input type="radio" name="pay_mode" value="COD" id="">
+                <input type="radio" name="pay_mode" value="COD" id="" required>
                 <label for="radio"> Cash on Delivery</label>
             </div>
-
-
             <button type="submit" name="purchase" class="btn">Make Purchase</button>
         </form>
     </div>
@@ -105,6 +104,23 @@
         ?>
 </section>
 <script>
+// let makePurchase=document.querySelector("#makePurchase");
+// let pnumber =document.querySelector("#number");
+
+// makePurchase.addEventListener('submit',(e)=>{
+//     e.preventDefault();
+//     console.log(pnumber.value);
+//    var reg=/^[789][0-9]{9}$/;
+
+//     if(!reg.test(pnumber)){
+//         document.getElementById("statusMsg1").innerHTML='Invalid phone Number';
+//         return true;
+//     }
+//    else{
+//        return true;
+//    }
+// })
+
     var iprice = document.getElementsByClassName('iprice');
     var iquantity = document.getElementsByClassName('iquantity');
     var itotal = document.getElementsByClassName('itotal');

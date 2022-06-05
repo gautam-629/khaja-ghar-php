@@ -7,6 +7,7 @@
   
     <!-- Admin Ajax Call JavaScript -->
     <script src="../js/adminajaxrequest.js"></script>
+   
 
     <!-- Custom JavaScript -->
     <!-- <script type="text/javascript" src="../js/custom.js"></script> -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2022 at 07:46 PM
+-- Generation Time: May 20, 2022 at 10:38 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -96,7 +96,7 @@ CREATE TABLE `order_manager` (
   `pnumber` int(100) DEFAULT NULL,
   `pay_mode` varchar(100) DEFAULT NULL,
   `amount` int(100) DEFAULT NULL,
-  `order_date` date DEFAULT NULL
+  `order_date` date NOT NULL DEFAULT curdate()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -104,8 +104,8 @@ CREATE TABLE `order_manager` (
 --
 
 INSERT INTO `order_manager` (`order_id`, `stu_email`, `pnumber`, `pay_mode`, `amount`, `order_date`) VALUES
-(4, 'deekap@gmail.com', 2147483647, 'COD', 114, NULL),
-(6, 'saroj@gmail.com', 2147483647, 'COD', 120, NULL);
+(4, 'deekap@gmail.com', 2147483647, 'COD', 114, '0000-00-00'),
+(6, 'saroj@gmail.com', 2147483647, 'COD', 120, '0000-00-00');
 
 -- --------------------------------------------------------
 
