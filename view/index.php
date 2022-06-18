@@ -23,7 +23,7 @@
         <div class="item-wrapper container">
             <?php 
             include ("../php/partials/dbconnect.php");
-             $sql = "SELECT * FROM item LIMIT 4";
+             $sql = "SELECT * FROM item";
              $result = $conn->query($sql);
              if($result->num_rows > 0){ 
                while($row = $result->fetch_assoc()){
