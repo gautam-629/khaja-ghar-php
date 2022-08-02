@@ -22,7 +22,8 @@ include('../php/partials/dbconnect.php');
     $result = $conn->query($sql);
     if($result->num_rows == 1){
      $stu_pass = $_REQUEST['stu_pass'];
-     $sql = "UPDATE student SET stu_pass = '$stu_pass' WHERE stu_email = '$stuEmail'";
+     $hash_pass=password_hash($stu_pass, PASSWORD_DEFAULT);
+     $sql = "UPDATE student SET stu_pass = '$hash_pass' WHERE stu_email = '$stuEmail'";
       if($conn->query($sql) == TRUE){
        // below msg display on form submit success
        $msg = '<div style="color:green;"> Updated Successfully </div>';

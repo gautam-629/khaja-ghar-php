@@ -16,12 +16,7 @@
     --smoke:whitesmoke;
     --dark-gray:#999;
 }
-.form-input{
-    font-size: 1rem;
-    border-radius: 6px;
-    padding: 3px;
-    font-family: var(--font2);
-}
+
 .btn{
     margin-top: 5px;
     outline: none;
@@ -93,7 +88,7 @@ ul.nav_list li a:hover{
     margin: 0 auto;
 }
 textarea{
-    padding: 5px 8rem;
+    padding: 5px 14px;
     text-align: left;
     font-size: 1.4rem;
     border-radius: 6px;
@@ -103,7 +98,7 @@ textarea{
     text-align: left;
     font-size: 1.4rem;
     border-radius: 6px;
-    padding: 3px 5rem;
+    /* padding: 3px 5rem; */
     font-family: var(--font2);
 }
 label{

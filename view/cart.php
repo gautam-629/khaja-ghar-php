@@ -21,6 +21,9 @@
         padding: 3px;
         border-radius: 6px;
     }
+.iquantity{
+    text-align: center;
+}
 </style>
 
 <div class="container" style="background-color: beige; height: 70px;">

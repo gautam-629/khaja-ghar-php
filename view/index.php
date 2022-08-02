@@ -77,7 +77,7 @@
            </p>
         </div>
            <div style="margin-top: 2px; margin-left: 50px;">
-               <img style="border-radius: 300px; border: 1px solid red;" src="<?php echo  $s_img; ?>" alt="" width="120px">
+               <img style="border-radius: 50%; border: 1px solid red; height: 100px; width: 100px;" src="<?php echo  $s_img; ?>" alt="">
                 <div>
                     <span style="color: rgb(255, 190, 68); margin-left: .6rem;"><?php echo $row['stu_name']; ?></span> <br>
                      <span style="color: white; margin-left: 2rem;""><?php echo $row['stu_occ']; ?></span>

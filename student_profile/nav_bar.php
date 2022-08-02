@@ -25,6 +25,12 @@ include('../php/partials/dbconnect.php');
     <title>My profile</title>
     <link rel="stylesheet" href="../css/student_profile.css">
 </head>
+<style>
+    .profileImage{
+       width: 200px;
+       height: 200px;
+    }
+</style>
 <body>
     <nav>
         <div class="header ">
@@ -32,7 +38,7 @@ include('../php/partials/dbconnect.php');
         </div>
         <div>
             <ul class="nav_list">
-                <img src="<?php echo $stu_img ?>" alt="image" width="200px"> 
+                <img class="profileImage" src="<?php echo $stu_img ?>" alt="image"> 
                 <li class="active"><a href="student_profile.php">Profile</a></li>
                 <li><a href="myorder.php">My order</a></li>
                 <li><a href="student_feedback.php">Feedback</a></li>
