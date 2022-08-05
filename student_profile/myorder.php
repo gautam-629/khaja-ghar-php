@@ -29,6 +29,7 @@ if(isset($_SESSION['is_login'])){
          <th>Order Date</th>
          <th>Orders</th>
          <th>Action</th>
+         <th>status</th>
         </tr>
        </thead>
        <tbody>';
@@ -40,6 +41,7 @@ if(isset($_SESSION['is_login'])){
           echo '<td>'.$row["pay_mode"].'</td>';
           echo '<td>'.$row["amount"].'</td>';
           echo '<td>'.$row["order_date"].'</td>';
+          echo '<td>'.$row["order_status"].'</td>';
           echo '<td>';
            echo '<table style="text-align: center; margin-left: 60px;" border="1" width="250" cellspacing="0">
                    <tr>

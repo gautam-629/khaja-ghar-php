@@ -79,7 +79,7 @@
         <h1 style="display: inline;">Grand Total:</h1 style="display: inline;">
         <h1 style="display: inline;" id="gtotal"> </h1>
 
-        <form style="margin-top: 20px;" action="purchase.php" method="post" id="makePurchase">
+        <form style="margin-top: 20px;" action="purchase.php" method="post" id="makePurchase" onsubmit="return PhoneValidation()">
             <!-- Order ID:  <input type="number" name="" id="">   -->
             <div>
                 <label for="email">Email</label> <br>
@@ -107,22 +107,19 @@
         ?>
 </section>
 <script>
-// let makePurchase=document.querySelector("#makePurchase");
-// let pnumber =document.querySelector("#number");
 
-// makePurchase.addEventListener('submit',(e)=>{
-//     e.preventDefault();
-//     console.log(pnumber.value);
-//    var reg=/^[789][0-9]{9}$/;
-
-//     if(!reg.test(pnumber)){
-//         document.getElementById("statusMsg1").innerHTML='Invalid phone Number';
-//         return true;
-//     }
-//    else{
-//        return true;
-//    }
-// })
+function PhoneValidation(){
+    let number =document.getElementById('number').value;
+    var reg=/^[98][0-9]{10}$/;
+ console.log(number)
+    if(number.length!=10){
+        document.getElementById("statusMsg1").innerHTML='invalid phone Number';
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 
     var iprice = document.getElementsByClassName('iprice');
     var iquantity = document.getElementsByClassName('iquantity');

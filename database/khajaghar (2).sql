@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2022 at 07:54 PM
+-- Generation Time: Aug 05, 2022 at 08:28 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -58,8 +58,8 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`f_id`, `f_content`, `stu_id`) VALUES
-(6, 'Best place to order food item', 7),
-(7, 'I like khajaghar good keep it up', 8);
+(9, 'Best place to order food item', 14),
+(10, 'I like khaja ghar, keep it up!', 15);
 
 -- --------------------------------------------------------
 
@@ -86,8 +86,7 @@ INSERT INTO `item` (`item_id`, `item_name`, `item_price`, `item_duration`, `item
 (7, 'Fry Rice', 70, '10 days', '../image/item_img/fryrice.jpg'),
 (8, 'PaniPuri', 30, '10 days', '../image/item_img/panipuri.jfif'),
 (9, 'Egg', 60, '10 days', '../image/item_img/Egg.jpg'),
-(10, 'Chana', 60, '10 days', '../image/item_img/chana.jfif'),
-(11, 'Chicken Momo', 120, '10 days', '../image/item_img/momo.jfif');
+(10, 'Chana sss', 60, '10 days', '../image/item_img/chana.jfif');
 
 -- --------------------------------------------------------
 
@@ -98,18 +97,20 @@ INSERT INTO `item` (`item_id`, `item_name`, `item_price`, `item_duration`, `item
 CREATE TABLE `order_manager` (
   `order_id` int(11) NOT NULL,
   `stu_email` varchar(100) DEFAULT NULL,
-  `pnumber` int(100) DEFAULT NULL,
+  `pnumber` varchar(200) DEFAULT NULL,
   `pay_mode` varchar(100) DEFAULT NULL,
   `amount` int(100) DEFAULT NULL,
-  `order_date` date NOT NULL DEFAULT curdate()
+  `order_date` date NOT NULL DEFAULT curdate(),
+  `order_status` varchar(200) DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `order_manager`
 --
 
-INSERT INTO `order_manager` (`order_id`, `stu_email`, `pnumber`, `pay_mode`, `amount`, `order_date`) VALUES
-(7, 'elon@gmail.com', 2147483647, 'COD', 90, '2022-06-18');
+INSERT INTO `order_manager` (`order_id`, `stu_email`, `pnumber`, `pay_mode`, `amount`, `order_date`, `order_status`) VALUES
+(29, 'gautambinod629@gmail.com', '9815835831', 'COD', 80, '2022-08-05', 'pending'),
+(30, 'elon@gmail.com', '9815835831', 'COD', 130, '2022-08-05', 'completed');
 
 -- --------------------------------------------------------
 
@@ -131,8 +132,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`stu_id`, `stu_name`, `stu_email`, `stu_pass`, `stu_occ`, `stu_img`) VALUES
-(7, 'Binod Gautam', 'gautambinod629@gmail.com', '$2y$10$AlrrQyPOpBtU4GSlwTBMDu6pB9RkptUbQKrlscQhBr96GaXHO5Fv2', '  student', '../image/stu_img/binod.jpg'),
-(8, 'Elon Musk', 'elon@gmail.com', '$2y$10$odoOXiuigokXr4MWUOQxJeBxe67Ng9q9b6V2YMiyb2pQYV9liteUe', ' Twitter owner', '../image/stu_img/download.jfif');
+(14, 'Binod Gautam', 'gautambinod629@gmail.com', '$2y$10$z7qju/6Y8HOU1cIpBnAMfOGRAYIz1EoUt8LPOl6fcSiASOh6qWP/u', ' student', '../image/stu_img/Singapore-Passport-Studio-Photo-9.jpg'),
+(15, 'Elon Musk', 'elon@gmail.com', '$2y$10$//A3tvYRohPqwc3X6pL8YOXchO7xaAXOGz68MvePEN71AnQoiTh6.', 'Project Manager', '../image/stu_img/download.jfif');
 
 -- --------------------------------------------------------
 
@@ -153,8 +154,9 @@ CREATE TABLE `student_orders` (
 --
 
 INSERT INTO `student_orders` (`order_id`, `item_name`, `item_price`, `Qunatity`, `item_id`) VALUES
-(7, 'PaniPuri', 30, 1, 8),
-(7, 'Chana', 60, 1, 10);
+(29, 'samosa', 40, 2, 4),
+(30, 'Roti', 60, 1, 6),
+(30, 'Fry Rice', 70, 1, 7);
 
 --
 -- Indexes for dumped tables
@@ -204,7 +206,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `item`
@@ -216,13 +218,13 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `order_manager`
 --
 ALTER TABLE `order_manager`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `stu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `stu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

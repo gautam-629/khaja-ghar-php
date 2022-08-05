@@ -18,7 +18,7 @@ function checkAdminLogin() {
         );
       } else if (data == 1) {
         $("#statusAdminLogMsg").html(
-          '<small style="color:blue"> Success! Loading..... </small>'
+          '<small style="color:blue; font-size: 20px;"> Success! Loading..... </small>'
         );
         // Empty Login Fields
         clearAdminLoginField();

@@ -86,7 +86,7 @@ $totalitem = $result->num_rows;
       $sql = "SELECT * FROM order_manager";
       $result = $conn->query($sql);
       if($result->num_rows > 0){
-       echo '<table  width="1150px" border="1" cellspacing="0">
+       echo '<table width="100px" border="1" cellspacing="0">
        <thead>
         <tr>
          <th>Order ID</th>
@@ -94,9 +94,11 @@ $totalitem = $result->num_rows;
          <th>Phone Number</th>
          <th>Pay Mode</th>
          <th>Total Amount</th>
-         <th>Oder Date</th>
+         <th>Order Date</th>
+         <th>Status</th>
          <th>Orders</th>
          <th>Action</th>
+         <th>change status</th>
         </tr>
        </thead>
        <tbody>';
@@ -108,6 +110,7 @@ $totalitem = $result->num_rows;
           echo '<td>'.$row["pay_mode"].'</td>';
           echo '<td>'.$row["amount"].'</td>';
           echo '<td>'.$row["order_date"].'</td>';
+          echo '<td>'.$row["order_status"].'</td>';
           echo '<td>';
            echo '<table border="1" cellspacing="0">
                    <tr>
@@ -131,6 +134,22 @@ $totalitem = $result->num_rows;
             echo' <td>
               <form action="" method="POST" style="display: inline;" ><input type="hidden" name="id" value='. $row["order_id"] .'><button type="submit" class="btn btn-secondary" name="delete" value="Delete"><i class="far fa-trash-alt"></i></button></form></td>
               </td>';
+
+
+
+              echo' <td>
+              <form action="status.php" method="POST" style="display: inline;" ><input type="hidden" name="id" value='. $row["order_id"] .'>
+                              <select name="status" id="" onchange="form.submit()">
+                                <option value="pending">pending</option>
+                                <option value="completed">completed</option>
+                              </select>
+              </form></td>
+              </td>';
+
+
+
+
+
         echo'</tr>';
         }
         echo '</tbody>
@@ -142,13 +161,13 @@ $totalitem = $result->num_rows;
         include('../php/partials/dbconnect.php');
        $sql = "DELETE FROM order_manager WHERE order_id = {$_REQUEST['id']}";
        if($conn->query($sql) === TRUE){
-         // echo "Record Deleted Successfully";
          // below code will refresh the page after deleting the record
          echo '<meta http-equiv="refresh" content= "0;URL=?deleted" />';
          } else {  
            echo "Unable to Delete Data";
          }
       }
+
      ?>
   </div>
   <?php  include("footer.php")?>
