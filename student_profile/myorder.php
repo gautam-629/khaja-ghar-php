@@ -27,9 +27,10 @@ if(isset($_SESSION['is_login'])){
          <th>Pay Mode</th>
          <th>Total Amount</th>
          <th>Order Date</th>
+         <th>status</th>
          <th>Orders</th>
          <th>Action</th>
-         <th>status</th>
+        
         </tr>
        </thead>
        <tbody>';
