@@ -11,7 +11,7 @@ if(isset($_SESSION['is_admin_login'])){
 <?php  include("nav_bar.php")?>
 <section style="position:absolute; left:200px; top: 100px;">
     <div>
-        <h1 style="color: blue; font-size: 2rem;">Item List</h1>
+        <h1 style="color: blue; font-size: 2rem;">Students List</h1>
         <button style="margin-left:850px; position: absolute; top: -6px; font-size: .9rem;" class="btn"><a style="text-decoration: none; color:white;" href="add_student.php">Add New</a></button>
         <?php
      include('../php/partials/dbconnect.php');

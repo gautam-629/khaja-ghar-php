@@ -166,7 +166,7 @@ function checkStuLogin() {
           );
         } else if (data == 1) {
           $("#statusLogMsg").html(
-            '<div>Loading.....</div>'
+            '<div style="font-size:20px;">Loading.....</div>'
           );
           // Empty Login Fields
         //   clearStuLoginField();
